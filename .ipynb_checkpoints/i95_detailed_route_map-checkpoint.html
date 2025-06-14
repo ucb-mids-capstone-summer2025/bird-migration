@@ -1,0 +1,1984 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_a3f052726d6f0a5cb5ff58765401bf6e {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/ardhi/Leaflet.MousePosition/src/L.Control.MousePosition.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ardhi/Leaflet.MousePosition/src/L.Control.MousePosition.min.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"/>
+</head>
+<body>
+    
+    
+<div style="position: fixed; 
+    top: 10px; left: 50px; width: 200px; height: 50px; 
+    background-color: white; border:2px solid grey; z-index:9999; 
+    font-size:16px; padding: 10px">
+    <b>Interstate 95 Detailed Route Map</b>
+</div>
+    
+            <div class="folium-map" id="map_a3f052726d6f0a5cb5ff58765401bf6e" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_a3f052726d6f0a5cb5ff58765401bf6e = L.map(
+                "map_a3f052726d6f0a5cb5ff58765401bf6e",
+                {
+                    center: [40.0, -75.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 5,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_86fe189c3fde37554db5ee93f90429db = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_86fe189c3fde37554db5ee93f90429db.addTo(map_a3f052726d6f0a5cb5ff58765401bf6e);
+        
+    
+            var feature_group_18d1957d43d734b122498e9a1451ef59 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var poly_line_56874f9c037d9fb16fd82c28e3e8dc92 = L.polyline(
+                [[25.7617, -80.1918], [25.986, -80.1626], [26.1224, -80.1373], [26.7153, -80.0534], [27.3364, -80.2309], [28.0345, -80.6881], [28.5383, -81.3792], [29.2108, -81.0228], [29.6516, -81.3279], [30.3322, -81.6557], [30.8268, -81.9598], [31.1499, -81.4914], [31.9976, -81.113], [32.2163, -81.0976], [32.4829, -81.2332], [33.5007, -81.9574], [34.0007, -81.0348], [34.2257, -80.689], [34.6235, -79.9414], [34.7554, -79.4628], [35.154, -78.8986], [35.7796, -78.6382], [36.0956, -78.3097], [36.4615, -77.6527], [36.8529, -76.2856], [37.5407, -77.436], [38.1854, -77.5514], [38.9072, -77.0369], [39.2904, -76.6122], [39.5695, -75.9375], [39.9526, -75.1652], [40.2206, -74.7597], [40.7128, -74.006], [40.9168, -73.7832], [41.1856, -73.1952], [41.3083, -72.9279], [41.5232, -72.7009], [41.7658, -72.6734], [41.824, -71.4128], [42.0654, -71.2478], [42.3601, -71.0589], [42.7654, -70.9292], [43.0718, -70.7626], [43.4971, -70.4134], [43.6591, -70.2568], [44.1002, -69.1092], [44.8023, -68.7778], [45.1373, -67.7813]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_18d1957d43d734b122498e9a1451ef59);
+        
+    
+        var popup_a68dee10696eba20f992b63fe9fa78f5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f775c9325201b396e0093ac365e1eae8 = $(`<div id="html_f775c9325201b396e0093ac365e1eae8" style="width: 100.0%; height: 100.0%;">Interstate 95</div>`)[0];
+                popup_a68dee10696eba20f992b63fe9fa78f5.setContent(html_f775c9325201b396e0093ac365e1eae8);
+            
+        
+
+        poly_line_56874f9c037d9fb16fd82c28e3e8dc92.bindPopup(popup_a68dee10696eba20f992b63fe9fa78f5)
+        ;
+
+        
+    
+    
+            feature_group_18d1957d43d734b122498e9a1451ef59.addTo(map_a3f052726d6f0a5cb5ff58765401bf6e);
+        
+    
+            var feature_group_3502de786bd1584104212941b2a842c1 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_ae8f229a389bdc13780b9d090f129b2a = L.circleMarker(
+                [25.7617, -80.1918],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_0c2e94f6aeae4b8b96e6a1edd26111cd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1e293d4ea61c5345d854906053a99dd6 = $(`<div id="html_1e293d4ea61c5345d854906053a99dd6" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 1</h4>         <p>Coordinates: 25.7617, -80.1918</p>     </div>     </div>`)[0];
+                popup_0c2e94f6aeae4b8b96e6a1edd26111cd.setContent(html_1e293d4ea61c5345d854906053a99dd6);
+            
+        
+
+        circle_marker_ae8f229a389bdc13780b9d090f129b2a.bindPopup(popup_0c2e94f6aeae4b8b96e6a1edd26111cd)
+        ;
+
+        
+    
+    
+            var circle_marker_4b5ceb88c763947718b03595e1a49362 = L.circleMarker(
+                [25.986, -80.1626],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_8d09e66249cb3bfd1a6d59ba7fdc0c71 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_af87c58fcfb90c2c9df58c3ac984ff3c = $(`<div id="html_af87c58fcfb90c2c9df58c3ac984ff3c" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 2</h4>         <p>Coordinates: 25.9860, -80.1626</p>     </div>     </div>`)[0];
+                popup_8d09e66249cb3bfd1a6d59ba7fdc0c71.setContent(html_af87c58fcfb90c2c9df58c3ac984ff3c);
+            
+        
+
+        circle_marker_4b5ceb88c763947718b03595e1a49362.bindPopup(popup_8d09e66249cb3bfd1a6d59ba7fdc0c71)
+        ;
+
+        
+    
+    
+            var circle_marker_d3e069218d85567b5fbea912c5e8c696 = L.circleMarker(
+                [26.1224, -80.1373],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_eac1ca9019829c4410351cd14601d8b2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6a5276462d78bc815824dff086dd436a = $(`<div id="html_6a5276462d78bc815824dff086dd436a" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 3</h4>         <p>Coordinates: 26.1224, -80.1373</p>     </div>     </div>`)[0];
+                popup_eac1ca9019829c4410351cd14601d8b2.setContent(html_6a5276462d78bc815824dff086dd436a);
+            
+        
+
+        circle_marker_d3e069218d85567b5fbea912c5e8c696.bindPopup(popup_eac1ca9019829c4410351cd14601d8b2)
+        ;
+
+        
+    
+    
+            var circle_marker_085b4f94b82a1ff1b0c3f93ba51794a3 = L.circleMarker(
+                [26.7153, -80.0534],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_5485faa132dc5d89eb579308cf244058 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b6e2fa2f6486b34313653ab13934e41a = $(`<div id="html_b6e2fa2f6486b34313653ab13934e41a" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 4</h4>         <p>Coordinates: 26.7153, -80.0534</p>     </div>     </div>`)[0];
+                popup_5485faa132dc5d89eb579308cf244058.setContent(html_b6e2fa2f6486b34313653ab13934e41a);
+            
+        
+
+        circle_marker_085b4f94b82a1ff1b0c3f93ba51794a3.bindPopup(popup_5485faa132dc5d89eb579308cf244058)
+        ;
+
+        
+    
+    
+            var circle_marker_942059d029548740d3c07b17b0c47353 = L.circleMarker(
+                [27.3364, -80.2309],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_ccbe29d3dcb9c1614ff5bc9e07f05a07 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9e21b62dfd23a9f1159fa922b56a13dd = $(`<div id="html_9e21b62dfd23a9f1159fa922b56a13dd" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 5</h4>         <p>Coordinates: 27.3364, -80.2309</p>     </div>     </div>`)[0];
+                popup_ccbe29d3dcb9c1614ff5bc9e07f05a07.setContent(html_9e21b62dfd23a9f1159fa922b56a13dd);
+            
+        
+
+        circle_marker_942059d029548740d3c07b17b0c47353.bindPopup(popup_ccbe29d3dcb9c1614ff5bc9e07f05a07)
+        ;
+
+        
+    
+    
+            var circle_marker_34c01ca60d7165de3e1a1bad95666efb = L.circleMarker(
+                [28.0345, -80.6881],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_bd87b900ccdbd9d3bca16929f057af5a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ba7094430ad79a3ab25e94f1bc360560 = $(`<div id="html_ba7094430ad79a3ab25e94f1bc360560" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 6</h4>         <p>Coordinates: 28.0345, -80.6881</p>     </div>     </div>`)[0];
+                popup_bd87b900ccdbd9d3bca16929f057af5a.setContent(html_ba7094430ad79a3ab25e94f1bc360560);
+            
+        
+
+        circle_marker_34c01ca60d7165de3e1a1bad95666efb.bindPopup(popup_bd87b900ccdbd9d3bca16929f057af5a)
+        ;
+
+        
+    
+    
+            var circle_marker_2236608d5e2121e0c8461c5695595f23 = L.circleMarker(
+                [28.5383, -81.3792],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_da537ee0a81fcfeb7dd867cf13951dd2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7fca605842eadce441b4b87823d91243 = $(`<div id="html_7fca605842eadce441b4b87823d91243" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 7</h4>         <p>Coordinates: 28.5383, -81.3792</p>     </div>     </div>`)[0];
+                popup_da537ee0a81fcfeb7dd867cf13951dd2.setContent(html_7fca605842eadce441b4b87823d91243);
+            
+        
+
+        circle_marker_2236608d5e2121e0c8461c5695595f23.bindPopup(popup_da537ee0a81fcfeb7dd867cf13951dd2)
+        ;
+
+        
+    
+    
+            var circle_marker_5f2c4fbe12e6fc85c93520b2d9d3c45d = L.circleMarker(
+                [29.2108, -81.0228],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_d30581a194fbd9f840ec1fc9e1be5637 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2be82a6da2a06587acc5f89a5dad01f5 = $(`<div id="html_2be82a6da2a06587acc5f89a5dad01f5" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 8</h4>         <p>Coordinates: 29.2108, -81.0228</p>     </div>     </div>`)[0];
+                popup_d30581a194fbd9f840ec1fc9e1be5637.setContent(html_2be82a6da2a06587acc5f89a5dad01f5);
+            
+        
+
+        circle_marker_5f2c4fbe12e6fc85c93520b2d9d3c45d.bindPopup(popup_d30581a194fbd9f840ec1fc9e1be5637)
+        ;
+
+        
+    
+    
+            var circle_marker_96806bfd0ace29834f19cb6b617f3e9b = L.circleMarker(
+                [29.6516, -81.3279],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_a929562ede4a50d13ab8891a60eb2084 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7efbe44a2aac85d8e5732b37412803cf = $(`<div id="html_7efbe44a2aac85d8e5732b37412803cf" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 9</h4>         <p>Coordinates: 29.6516, -81.3279</p>     </div>     </div>`)[0];
+                popup_a929562ede4a50d13ab8891a60eb2084.setContent(html_7efbe44a2aac85d8e5732b37412803cf);
+            
+        
+
+        circle_marker_96806bfd0ace29834f19cb6b617f3e9b.bindPopup(popup_a929562ede4a50d13ab8891a60eb2084)
+        ;
+
+        
+    
+    
+            var circle_marker_eeb26024a5d2f7be29edeaae2d2a9833 = L.circleMarker(
+                [30.3322, -81.6557],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_f446112b5c144ef99671bd04f754312a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3f5ad18c6c302ca7014b4690edd7b94a = $(`<div id="html_3f5ad18c6c302ca7014b4690edd7b94a" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 10</h4>         <p>Coordinates: 30.3322, -81.6557</p>     </div>     </div>`)[0];
+                popup_f446112b5c144ef99671bd04f754312a.setContent(html_3f5ad18c6c302ca7014b4690edd7b94a);
+            
+        
+
+        circle_marker_eeb26024a5d2f7be29edeaae2d2a9833.bindPopup(popup_f446112b5c144ef99671bd04f754312a)
+        ;
+
+        
+    
+    
+            var circle_marker_df443e765ff494c4763dc713f173f106 = L.circleMarker(
+                [30.8268, -81.9598],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_fc6ae7b9aea37afa4601ab0ea311fa27 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_779c6615576975236fd78bf2fd9a2e42 = $(`<div id="html_779c6615576975236fd78bf2fd9a2e42" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 11</h4>         <p>Coordinates: 30.8268, -81.9598</p>     </div>     </div>`)[0];
+                popup_fc6ae7b9aea37afa4601ab0ea311fa27.setContent(html_779c6615576975236fd78bf2fd9a2e42);
+            
+        
+
+        circle_marker_df443e765ff494c4763dc713f173f106.bindPopup(popup_fc6ae7b9aea37afa4601ab0ea311fa27)
+        ;
+
+        
+    
+    
+            var circle_marker_1d9b0c3fe6702352ead38acb5914ead7 = L.circleMarker(
+                [31.1499, -81.4914],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_524c5313d45cb9100692d5c5aa458138 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f3693e9bb88032f002a90a70167687d9 = $(`<div id="html_f3693e9bb88032f002a90a70167687d9" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 12</h4>         <p>Coordinates: 31.1499, -81.4914</p>     </div>     </div>`)[0];
+                popup_524c5313d45cb9100692d5c5aa458138.setContent(html_f3693e9bb88032f002a90a70167687d9);
+            
+        
+
+        circle_marker_1d9b0c3fe6702352ead38acb5914ead7.bindPopup(popup_524c5313d45cb9100692d5c5aa458138)
+        ;
+
+        
+    
+    
+            var circle_marker_661cc7141f2e4e4f31d4d410912ac35f = L.circleMarker(
+                [31.9976, -81.113],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_3f5f9c087b95a479704f5e769519cc31 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_690aec6e3372b8e7c94a60d445bcd41a = $(`<div id="html_690aec6e3372b8e7c94a60d445bcd41a" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 13</h4>         <p>Coordinates: 31.9976, -81.1130</p>     </div>     </div>`)[0];
+                popup_3f5f9c087b95a479704f5e769519cc31.setContent(html_690aec6e3372b8e7c94a60d445bcd41a);
+            
+        
+
+        circle_marker_661cc7141f2e4e4f31d4d410912ac35f.bindPopup(popup_3f5f9c087b95a479704f5e769519cc31)
+        ;
+
+        
+    
+    
+            var circle_marker_fe2deddaa14ddc15e78179160cd60141 = L.circleMarker(
+                [32.2163, -81.0976],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_aafa2fe861a605e1e91a5ca9e1ed892e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_632a0ea2d78cceaa7060077ddd27fa7c = $(`<div id="html_632a0ea2d78cceaa7060077ddd27fa7c" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 14</h4>         <p>Coordinates: 32.2163, -81.0976</p>     </div>     </div>`)[0];
+                popup_aafa2fe861a605e1e91a5ca9e1ed892e.setContent(html_632a0ea2d78cceaa7060077ddd27fa7c);
+            
+        
+
+        circle_marker_fe2deddaa14ddc15e78179160cd60141.bindPopup(popup_aafa2fe861a605e1e91a5ca9e1ed892e)
+        ;
+
+        
+    
+    
+            var circle_marker_60f4784fc9757ea8f664d96edb197feb = L.circleMarker(
+                [32.4829, -81.2332],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_674544d58cffca71779e1c6f186823f6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3a7f2510496c4a8c119bd22aab2d2ead = $(`<div id="html_3a7f2510496c4a8c119bd22aab2d2ead" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 15</h4>         <p>Coordinates: 32.4829, -81.2332</p>     </div>     </div>`)[0];
+                popup_674544d58cffca71779e1c6f186823f6.setContent(html_3a7f2510496c4a8c119bd22aab2d2ead);
+            
+        
+
+        circle_marker_60f4784fc9757ea8f664d96edb197feb.bindPopup(popup_674544d58cffca71779e1c6f186823f6)
+        ;
+
+        
+    
+    
+            var circle_marker_20705dcc0bfb8c38965c743e73f4fa16 = L.circleMarker(
+                [33.5007, -81.9574],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_2846915bba86d9f4964301c04e45f270 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a431dc2cd6e18f8ece5461142cf65b63 = $(`<div id="html_a431dc2cd6e18f8ece5461142cf65b63" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 16</h4>         <p>Coordinates: 33.5007, -81.9574</p>     </div>     </div>`)[0];
+                popup_2846915bba86d9f4964301c04e45f270.setContent(html_a431dc2cd6e18f8ece5461142cf65b63);
+            
+        
+
+        circle_marker_20705dcc0bfb8c38965c743e73f4fa16.bindPopup(popup_2846915bba86d9f4964301c04e45f270)
+        ;
+
+        
+    
+    
+            var circle_marker_d55e514b663612b60c9970a287ca371c = L.circleMarker(
+                [34.0007, -81.0348],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_cf578b78e86bf938c37850e5c008757f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e8306197974fa4a583c3ad9714cd28d9 = $(`<div id="html_e8306197974fa4a583c3ad9714cd28d9" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 17</h4>         <p>Coordinates: 34.0007, -81.0348</p>     </div>     </div>`)[0];
+                popup_cf578b78e86bf938c37850e5c008757f.setContent(html_e8306197974fa4a583c3ad9714cd28d9);
+            
+        
+
+        circle_marker_d55e514b663612b60c9970a287ca371c.bindPopup(popup_cf578b78e86bf938c37850e5c008757f)
+        ;
+
+        
+    
+    
+            var circle_marker_5abe95834d414a8ce496aaa31f5017f8 = L.circleMarker(
+                [34.2257, -80.689],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_a98f0f7adb810129f1127fad256a1690 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6f516f808ddaf52bb588119895941de8 = $(`<div id="html_6f516f808ddaf52bb588119895941de8" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 18</h4>         <p>Coordinates: 34.2257, -80.6890</p>     </div>     </div>`)[0];
+                popup_a98f0f7adb810129f1127fad256a1690.setContent(html_6f516f808ddaf52bb588119895941de8);
+            
+        
+
+        circle_marker_5abe95834d414a8ce496aaa31f5017f8.bindPopup(popup_a98f0f7adb810129f1127fad256a1690)
+        ;
+
+        
+    
+    
+            var circle_marker_7b93ee7b63d038c07c236fcf333a4e3a = L.circleMarker(
+                [34.6235, -79.9414],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_5ccc86edc625f39abd83dafb908cc0ab = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1bad2ac78081304d210c741e68239b18 = $(`<div id="html_1bad2ac78081304d210c741e68239b18" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 19</h4>         <p>Coordinates: 34.6235, -79.9414</p>     </div>     </div>`)[0];
+                popup_5ccc86edc625f39abd83dafb908cc0ab.setContent(html_1bad2ac78081304d210c741e68239b18);
+            
+        
+
+        circle_marker_7b93ee7b63d038c07c236fcf333a4e3a.bindPopup(popup_5ccc86edc625f39abd83dafb908cc0ab)
+        ;
+
+        
+    
+    
+            var circle_marker_9d4d7650c2947239b5aa4f78d53e96f3 = L.circleMarker(
+                [34.7554, -79.4628],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_f8a296f56c3e9b71dbc0d83c490c2694 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_201953eaee4137109deb06b65a4f034a = $(`<div id="html_201953eaee4137109deb06b65a4f034a" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 20</h4>         <p>Coordinates: 34.7554, -79.4628</p>     </div>     </div>`)[0];
+                popup_f8a296f56c3e9b71dbc0d83c490c2694.setContent(html_201953eaee4137109deb06b65a4f034a);
+            
+        
+
+        circle_marker_9d4d7650c2947239b5aa4f78d53e96f3.bindPopup(popup_f8a296f56c3e9b71dbc0d83c490c2694)
+        ;
+
+        
+    
+    
+            var circle_marker_00141db9602526f41dc57c93de883b13 = L.circleMarker(
+                [35.154, -78.8986],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_10d9b901671a0e86b2713162ffe3731c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3d684b4c03742641a207f1e97b1693e5 = $(`<div id="html_3d684b4c03742641a207f1e97b1693e5" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 21</h4>         <p>Coordinates: 35.1540, -78.8986</p>     </div>     </div>`)[0];
+                popup_10d9b901671a0e86b2713162ffe3731c.setContent(html_3d684b4c03742641a207f1e97b1693e5);
+            
+        
+
+        circle_marker_00141db9602526f41dc57c93de883b13.bindPopup(popup_10d9b901671a0e86b2713162ffe3731c)
+        ;
+
+        
+    
+    
+            var circle_marker_2de7db3539570ba6373a18f32f891add = L.circleMarker(
+                [35.7796, -78.6382],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_a3ed028335f90de55ed148e787cebf19 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_701871f72a3b3c30b1032014ca76aaa0 = $(`<div id="html_701871f72a3b3c30b1032014ca76aaa0" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 22</h4>         <p>Coordinates: 35.7796, -78.6382</p>     </div>     </div>`)[0];
+                popup_a3ed028335f90de55ed148e787cebf19.setContent(html_701871f72a3b3c30b1032014ca76aaa0);
+            
+        
+
+        circle_marker_2de7db3539570ba6373a18f32f891add.bindPopup(popup_a3ed028335f90de55ed148e787cebf19)
+        ;
+
+        
+    
+    
+            var circle_marker_027faa270ef5246a6ecab2ef760a87ea = L.circleMarker(
+                [36.0956, -78.3097],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_a7976171035037d1ff1f2ec0a8d66456 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_277212f97cf2e6512a21f4857893b6fd = $(`<div id="html_277212f97cf2e6512a21f4857893b6fd" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 23</h4>         <p>Coordinates: 36.0956, -78.3097</p>     </div>     </div>`)[0];
+                popup_a7976171035037d1ff1f2ec0a8d66456.setContent(html_277212f97cf2e6512a21f4857893b6fd);
+            
+        
+
+        circle_marker_027faa270ef5246a6ecab2ef760a87ea.bindPopup(popup_a7976171035037d1ff1f2ec0a8d66456)
+        ;
+
+        
+    
+    
+            var circle_marker_e7a54248cdd13ef0e637dbeba1bce7de = L.circleMarker(
+                [36.4615, -77.6527],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_306d56bdfad71c1475c313d853d68762 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_48cebaf2061259a5710b14455fbbaecf = $(`<div id="html_48cebaf2061259a5710b14455fbbaecf" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 24</h4>         <p>Coordinates: 36.4615, -77.6527</p>     </div>     </div>`)[0];
+                popup_306d56bdfad71c1475c313d853d68762.setContent(html_48cebaf2061259a5710b14455fbbaecf);
+            
+        
+
+        circle_marker_e7a54248cdd13ef0e637dbeba1bce7de.bindPopup(popup_306d56bdfad71c1475c313d853d68762)
+        ;
+
+        
+    
+    
+            var circle_marker_52a7cbb7eef8f1d77a712a5c90722b0b = L.circleMarker(
+                [36.8529, -76.2856],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_29b5a3f73721a9a8f69f9c5b76f98176 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c2540d36ca7db90a5654e547b2dc7210 = $(`<div id="html_c2540d36ca7db90a5654e547b2dc7210" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 25</h4>         <p>Coordinates: 36.8529, -76.2856</p>     </div>     </div>`)[0];
+                popup_29b5a3f73721a9a8f69f9c5b76f98176.setContent(html_c2540d36ca7db90a5654e547b2dc7210);
+            
+        
+
+        circle_marker_52a7cbb7eef8f1d77a712a5c90722b0b.bindPopup(popup_29b5a3f73721a9a8f69f9c5b76f98176)
+        ;
+
+        
+    
+    
+            var circle_marker_981390892e9744a581b49f82908776a4 = L.circleMarker(
+                [37.5407, -77.436],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_6066f84c723e498c3e6391baed5b1c0d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3043efa743a92840f2e022c28acaa73a = $(`<div id="html_3043efa743a92840f2e022c28acaa73a" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 26</h4>         <p>Coordinates: 37.5407, -77.4360</p>     </div>     </div>`)[0];
+                popup_6066f84c723e498c3e6391baed5b1c0d.setContent(html_3043efa743a92840f2e022c28acaa73a);
+            
+        
+
+        circle_marker_981390892e9744a581b49f82908776a4.bindPopup(popup_6066f84c723e498c3e6391baed5b1c0d)
+        ;
+
+        
+    
+    
+            var circle_marker_5333c9b005b4c83e8c07f2f274445bb6 = L.circleMarker(
+                [38.1854, -77.5514],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_602e4333523a765bef4df5b7841e3289 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_aefc04ea0c2d009721acc6c0cc24889d = $(`<div id="html_aefc04ea0c2d009721acc6c0cc24889d" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 27</h4>         <p>Coordinates: 38.1854, -77.5514</p>     </div>     </div>`)[0];
+                popup_602e4333523a765bef4df5b7841e3289.setContent(html_aefc04ea0c2d009721acc6c0cc24889d);
+            
+        
+
+        circle_marker_5333c9b005b4c83e8c07f2f274445bb6.bindPopup(popup_602e4333523a765bef4df5b7841e3289)
+        ;
+
+        
+    
+    
+            var circle_marker_40b04cc368d33102fc6f5a64dcca6dd4 = L.circleMarker(
+                [38.9072, -77.0369],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_8a6e195558d6db5b8dba150a271f9ab4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f56c01842095864e39ebde120da6bb47 = $(`<div id="html_f56c01842095864e39ebde120da6bb47" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 28</h4>         <p>Coordinates: 38.9072, -77.0369</p>     </div>     </div>`)[0];
+                popup_8a6e195558d6db5b8dba150a271f9ab4.setContent(html_f56c01842095864e39ebde120da6bb47);
+            
+        
+
+        circle_marker_40b04cc368d33102fc6f5a64dcca6dd4.bindPopup(popup_8a6e195558d6db5b8dba150a271f9ab4)
+        ;
+
+        
+    
+    
+            var circle_marker_41afaebf23434657ec8dfc093b7ddc5e = L.circleMarker(
+                [39.2904, -76.6122],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_fe609afbc7d76322247f1c5159247493 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_29232c2b04e06f7439c59fe501ea9147 = $(`<div id="html_29232c2b04e06f7439c59fe501ea9147" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 29</h4>         <p>Coordinates: 39.2904, -76.6122</p>     </div>     </div>`)[0];
+                popup_fe609afbc7d76322247f1c5159247493.setContent(html_29232c2b04e06f7439c59fe501ea9147);
+            
+        
+
+        circle_marker_41afaebf23434657ec8dfc093b7ddc5e.bindPopup(popup_fe609afbc7d76322247f1c5159247493)
+        ;
+
+        
+    
+    
+            var circle_marker_45b26a5893725e4db522ae03b44ee49a = L.circleMarker(
+                [39.5695, -75.9375],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_b5ffcf6e90b0ecb92d750be17c848b8c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_59d037b23f32ea84c219e2f91b8601a8 = $(`<div id="html_59d037b23f32ea84c219e2f91b8601a8" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 30</h4>         <p>Coordinates: 39.5695, -75.9375</p>     </div>     </div>`)[0];
+                popup_b5ffcf6e90b0ecb92d750be17c848b8c.setContent(html_59d037b23f32ea84c219e2f91b8601a8);
+            
+        
+
+        circle_marker_45b26a5893725e4db522ae03b44ee49a.bindPopup(popup_b5ffcf6e90b0ecb92d750be17c848b8c)
+        ;
+
+        
+    
+    
+            var circle_marker_ace06eee38016ab676a3881ffe7cca3b = L.circleMarker(
+                [39.9526, -75.1652],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_05c058a67b657adafe2facbfe79926d2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_814e4936217fb631a96573ff8553c5d4 = $(`<div id="html_814e4936217fb631a96573ff8553c5d4" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 31</h4>         <p>Coordinates: 39.9526, -75.1652</p>     </div>     </div>`)[0];
+                popup_05c058a67b657adafe2facbfe79926d2.setContent(html_814e4936217fb631a96573ff8553c5d4);
+            
+        
+
+        circle_marker_ace06eee38016ab676a3881ffe7cca3b.bindPopup(popup_05c058a67b657adafe2facbfe79926d2)
+        ;
+
+        
+    
+    
+            var circle_marker_13b4691a4a9d9d09137388caf4ed8870 = L.circleMarker(
+                [40.2206, -74.7597],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_d6ce5fda6b5a555c83c0386ca2b41236 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_19b88a4e8c66afb85f083d2538e0637a = $(`<div id="html_19b88a4e8c66afb85f083d2538e0637a" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 32</h4>         <p>Coordinates: 40.2206, -74.7597</p>     </div>     </div>`)[0];
+                popup_d6ce5fda6b5a555c83c0386ca2b41236.setContent(html_19b88a4e8c66afb85f083d2538e0637a);
+            
+        
+
+        circle_marker_13b4691a4a9d9d09137388caf4ed8870.bindPopup(popup_d6ce5fda6b5a555c83c0386ca2b41236)
+        ;
+
+        
+    
+    
+            var circle_marker_f6920904236e1d149abf7dbc3ab24f41 = L.circleMarker(
+                [40.7128, -74.006],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_238c3e424bedb2f024eba3713e37a580 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_96abcf9228d0f3d23c1e29cffe2173a2 = $(`<div id="html_96abcf9228d0f3d23c1e29cffe2173a2" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 33</h4>         <p>Coordinates: 40.7128, -74.0060</p>     </div>     </div>`)[0];
+                popup_238c3e424bedb2f024eba3713e37a580.setContent(html_96abcf9228d0f3d23c1e29cffe2173a2);
+            
+        
+
+        circle_marker_f6920904236e1d149abf7dbc3ab24f41.bindPopup(popup_238c3e424bedb2f024eba3713e37a580)
+        ;
+
+        
+    
+    
+            var circle_marker_df95194cb48c2ed20a6449109a489c63 = L.circleMarker(
+                [40.9168, -73.7832],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_5714205f4a33a74332b74f77493a5f91 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3c5efe5c91982ddc92d1c365f2e6a25c = $(`<div id="html_3c5efe5c91982ddc92d1c365f2e6a25c" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 34</h4>         <p>Coordinates: 40.9168, -73.7832</p>     </div>     </div>`)[0];
+                popup_5714205f4a33a74332b74f77493a5f91.setContent(html_3c5efe5c91982ddc92d1c365f2e6a25c);
+            
+        
+
+        circle_marker_df95194cb48c2ed20a6449109a489c63.bindPopup(popup_5714205f4a33a74332b74f77493a5f91)
+        ;
+
+        
+    
+    
+            var circle_marker_799c9eaad4dbcf6bde675ffc9dbe7b28 = L.circleMarker(
+                [41.1856, -73.1952],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_ad959bf73fde7fac774ba954a413066c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5cd638a460471cdce0466ca96e50397d = $(`<div id="html_5cd638a460471cdce0466ca96e50397d" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 35</h4>         <p>Coordinates: 41.1856, -73.1952</p>     </div>     </div>`)[0];
+                popup_ad959bf73fde7fac774ba954a413066c.setContent(html_5cd638a460471cdce0466ca96e50397d);
+            
+        
+
+        circle_marker_799c9eaad4dbcf6bde675ffc9dbe7b28.bindPopup(popup_ad959bf73fde7fac774ba954a413066c)
+        ;
+
+        
+    
+    
+            var circle_marker_bfe5a1d3786210732b3abd3c27e006ad = L.circleMarker(
+                [41.3083, -72.9279],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_95298031e804babcb94404c99498b139 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ae96d88ffbad38c6d747d5d4b8280f5a = $(`<div id="html_ae96d88ffbad38c6d747d5d4b8280f5a" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 36</h4>         <p>Coordinates: 41.3083, -72.9279</p>     </div>     </div>`)[0];
+                popup_95298031e804babcb94404c99498b139.setContent(html_ae96d88ffbad38c6d747d5d4b8280f5a);
+            
+        
+
+        circle_marker_bfe5a1d3786210732b3abd3c27e006ad.bindPopup(popup_95298031e804babcb94404c99498b139)
+        ;
+
+        
+    
+    
+            var circle_marker_036acd5bf66e059502a555cb7a4f2f55 = L.circleMarker(
+                [41.5232, -72.7009],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_95f15d2ee6ef235a09b225d0e424d81e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e3a2d3fa0226399500c8ee4892feb59f = $(`<div id="html_e3a2d3fa0226399500c8ee4892feb59f" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 37</h4>         <p>Coordinates: 41.5232, -72.7009</p>     </div>     </div>`)[0];
+                popup_95f15d2ee6ef235a09b225d0e424d81e.setContent(html_e3a2d3fa0226399500c8ee4892feb59f);
+            
+        
+
+        circle_marker_036acd5bf66e059502a555cb7a4f2f55.bindPopup(popup_95f15d2ee6ef235a09b225d0e424d81e)
+        ;
+
+        
+    
+    
+            var circle_marker_1fa84ad7ea4739362131c1d458d944be = L.circleMarker(
+                [41.7658, -72.6734],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_5650efb6795393531d2d4db3e76acd49 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0d90d6c00b1d1815c4deaceee6e18e33 = $(`<div id="html_0d90d6c00b1d1815c4deaceee6e18e33" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 38</h4>         <p>Coordinates: 41.7658, -72.6734</p>     </div>     </div>`)[0];
+                popup_5650efb6795393531d2d4db3e76acd49.setContent(html_0d90d6c00b1d1815c4deaceee6e18e33);
+            
+        
+
+        circle_marker_1fa84ad7ea4739362131c1d458d944be.bindPopup(popup_5650efb6795393531d2d4db3e76acd49)
+        ;
+
+        
+    
+    
+            var circle_marker_b9ccbcedf0ca93de7114deb9d78b0cf3 = L.circleMarker(
+                [41.824, -71.4128],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_00bd446960d4b81a4754f83bc5d7bdaa = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_10a0dbcba83f640b15c250b95b90e6d2 = $(`<div id="html_10a0dbcba83f640b15c250b95b90e6d2" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 39</h4>         <p>Coordinates: 41.8240, -71.4128</p>     </div>     </div>`)[0];
+                popup_00bd446960d4b81a4754f83bc5d7bdaa.setContent(html_10a0dbcba83f640b15c250b95b90e6d2);
+            
+        
+
+        circle_marker_b9ccbcedf0ca93de7114deb9d78b0cf3.bindPopup(popup_00bd446960d4b81a4754f83bc5d7bdaa)
+        ;
+
+        
+    
+    
+            var circle_marker_66e99f4a6884debdab114735435551fe = L.circleMarker(
+                [42.0654, -71.2478],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_7810daaecdd40e51a0c5614c2d694d28 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c7c8ea92a903dd151ebf2b759eb27b96 = $(`<div id="html_c7c8ea92a903dd151ebf2b759eb27b96" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 40</h4>         <p>Coordinates: 42.0654, -71.2478</p>     </div>     </div>`)[0];
+                popup_7810daaecdd40e51a0c5614c2d694d28.setContent(html_c7c8ea92a903dd151ebf2b759eb27b96);
+            
+        
+
+        circle_marker_66e99f4a6884debdab114735435551fe.bindPopup(popup_7810daaecdd40e51a0c5614c2d694d28)
+        ;
+
+        
+    
+    
+            var circle_marker_c127120e4d0a03e5987a326ab946bd92 = L.circleMarker(
+                [42.3601, -71.0589],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_0490fedb2493d6d1d75f1f0a792a5999 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3c7fc6e272048c03b15ed2842c2458f6 = $(`<div id="html_3c7fc6e272048c03b15ed2842c2458f6" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 41</h4>         <p>Coordinates: 42.3601, -71.0589</p>     </div>     </div>`)[0];
+                popup_0490fedb2493d6d1d75f1f0a792a5999.setContent(html_3c7fc6e272048c03b15ed2842c2458f6);
+            
+        
+
+        circle_marker_c127120e4d0a03e5987a326ab946bd92.bindPopup(popup_0490fedb2493d6d1d75f1f0a792a5999)
+        ;
+
+        
+    
+    
+            var circle_marker_11ac253ee90c63e799ef22085b44af9e = L.circleMarker(
+                [42.7654, -70.9292],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_0a4b1fef28665a255cdb71d87fd0df57 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3ef236d6fbe4b9b74e6ede4b231d9e51 = $(`<div id="html_3ef236d6fbe4b9b74e6ede4b231d9e51" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 42</h4>         <p>Coordinates: 42.7654, -70.9292</p>     </div>     </div>`)[0];
+                popup_0a4b1fef28665a255cdb71d87fd0df57.setContent(html_3ef236d6fbe4b9b74e6ede4b231d9e51);
+            
+        
+
+        circle_marker_11ac253ee90c63e799ef22085b44af9e.bindPopup(popup_0a4b1fef28665a255cdb71d87fd0df57)
+        ;
+
+        
+    
+    
+            var circle_marker_38dc503b840477616e79dee060b07c12 = L.circleMarker(
+                [43.0718, -70.7626],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_730f4e00f5ca9c52c0148bad8880acf0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a38163049673e6229b0fc88a7b7366f6 = $(`<div id="html_a38163049673e6229b0fc88a7b7366f6" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 43</h4>         <p>Coordinates: 43.0718, -70.7626</p>     </div>     </div>`)[0];
+                popup_730f4e00f5ca9c52c0148bad8880acf0.setContent(html_a38163049673e6229b0fc88a7b7366f6);
+            
+        
+
+        circle_marker_38dc503b840477616e79dee060b07c12.bindPopup(popup_730f4e00f5ca9c52c0148bad8880acf0)
+        ;
+
+        
+    
+    
+            var circle_marker_55f18c01a87243bbc6fa5883498fcdb0 = L.circleMarker(
+                [43.4971, -70.4134],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_75390396cf4bf4afca9da87b661239db = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c2fd5813bf85e05d8efc267a0676cb41 = $(`<div id="html_c2fd5813bf85e05d8efc267a0676cb41" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 44</h4>         <p>Coordinates: 43.4971, -70.4134</p>     </div>     </div>`)[0];
+                popup_75390396cf4bf4afca9da87b661239db.setContent(html_c2fd5813bf85e05d8efc267a0676cb41);
+            
+        
+
+        circle_marker_55f18c01a87243bbc6fa5883498fcdb0.bindPopup(popup_75390396cf4bf4afca9da87b661239db)
+        ;
+
+        
+    
+    
+            var circle_marker_b28911eb4f52c99f19ad402380bfc4f1 = L.circleMarker(
+                [43.6591, -70.2568],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_72b7a58c1509d83d5c20a652b1c25d3f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4e3a4888b0cbc0087acd2ff541f74a6c = $(`<div id="html_4e3a4888b0cbc0087acd2ff541f74a6c" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 45</h4>         <p>Coordinates: 43.6591, -70.2568</p>     </div>     </div>`)[0];
+                popup_72b7a58c1509d83d5c20a652b1c25d3f.setContent(html_4e3a4888b0cbc0087acd2ff541f74a6c);
+            
+        
+
+        circle_marker_b28911eb4f52c99f19ad402380bfc4f1.bindPopup(popup_72b7a58c1509d83d5c20a652b1c25d3f)
+        ;
+
+        
+    
+    
+            var circle_marker_0d7ef06085e5fbbbc866c72ce62fe1ed = L.circleMarker(
+                [44.1002, -69.1092],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_fbe2aa7166cdf25e45b797fa733e9ca5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9f7dedcc2f5db0732bafaeb94181d8a4 = $(`<div id="html_9f7dedcc2f5db0732bafaeb94181d8a4" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 46</h4>         <p>Coordinates: 44.1002, -69.1092</p>     </div>     </div>`)[0];
+                popup_fbe2aa7166cdf25e45b797fa733e9ca5.setContent(html_9f7dedcc2f5db0732bafaeb94181d8a4);
+            
+        
+
+        circle_marker_0d7ef06085e5fbbbc866c72ce62fe1ed.bindPopup(popup_fbe2aa7166cdf25e45b797fa733e9ca5)
+        ;
+
+        
+    
+    
+            var circle_marker_55f991bdf34933d4a8900f8beb76a330 = L.circleMarker(
+                [44.8023, -68.7778],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_9618b093352811807a16bbd737227ed5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_82a201bd93aee8eb401ca709d6eecfe7 = $(`<div id="html_82a201bd93aee8eb401ca709d6eecfe7" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 47</h4>         <p>Coordinates: 44.8023, -68.7778</p>     </div>     </div>`)[0];
+                popup_9618b093352811807a16bbd737227ed5.setContent(html_82a201bd93aee8eb401ca709d6eecfe7);
+            
+        
+
+        circle_marker_55f991bdf34933d4a8900f8beb76a330.bindPopup(popup_9618b093352811807a16bbd737227ed5)
+        ;
+
+        
+    
+    
+            var circle_marker_e58583b6aa2fa37bc88de4c68d426084 = L.circleMarker(
+                [45.1373, -67.7813],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(feature_group_3502de786bd1584104212941b2a842c1);
+        
+    
+        var popup_1a144fdd943dc5e1998aee409c2ddb65 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_95cdde46122fd4ec95488b1608fff9b0 = $(`<div id="html_95cdde46122fd4ec95488b1608fff9b0" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>I-95 Waypoint 48</h4>         <p>Coordinates: 45.1373, -67.7813</p>     </div>     </div>`)[0];
+                popup_1a144fdd943dc5e1998aee409c2ddb65.setContent(html_95cdde46122fd4ec95488b1608fff9b0);
+            
+        
+
+        circle_marker_e58583b6aa2fa37bc88de4c68d426084.bindPopup(popup_1a144fdd943dc5e1998aee409c2ddb65)
+        ;
+
+        
+    
+    
+            feature_group_3502de786bd1584104212941b2a842c1.addTo(map_a3f052726d6f0a5cb5ff58765401bf6e);
+        
+    
+            var tile_layer_5be601a9100da2657e8c7f8031245be9 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_5be601a9100da2657e8c7f8031245be9.addTo(map_a3f052726d6f0a5cb5ff58765401bf6e);
+        
+    
+            var tile_layer_ef52759f122fdb147559e88486539113 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_ef52759f122fdb147559e88486539113.addTo(map_a3f052726d6f0a5cb5ff58765401bf6e);
+        
+    
+            var tile_layer_eda91665adbbf4ca9431c14f29165fe1 = L.tileLayer(
+                "Stamen Terrain",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Map tiles by \u003ca href=\"http://stamen.com\"\u003eStamen Design\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by/3.0\"\u003eCC BY 3.0\u003c/a\u003e. Data by \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_eda91665adbbf4ca9431c14f29165fe1.addTo(map_a3f052726d6f0a5cb5ff58765401bf6e);
+        
+    
+            var feature_group_77e43f639e51fa65977e0f61454e4b8c = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_868bbb28a55f278471cab0b72bbf4ea4 = L.circleMarker(
+                [38.9072, -77.0369],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_77e43f639e51fa65977e0f61454e4b8c);
+        
+    
+        var popup_799e544e87698201ca8c9feba34fcfa2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_546931f2bf898734b50bcff7012f150c = $(`<div id="html_546931f2bf898734b50bcff7012f150c" style="width: 100.0%; height: 100.0%;"><div style='width: 200px'><h4>Point 0</h4><p><b>total_birds:</b> 2776.0000</p></div></div>`)[0];
+                popup_799e544e87698201ca8c9feba34fcfa2.setContent(html_546931f2bf898734b50bcff7012f150c);
+            
+        
+
+        circle_marker_868bbb28a55f278471cab0b72bbf4ea4.bindPopup(popup_799e544e87698201ca8c9feba34fcfa2)
+        ;
+
+        
+    
+    
+            var circle_marker_cd9ca6376372eb91a3dde7340b89887f = L.circleMarker(
+                [38.9072, -77.0369],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_77e43f639e51fa65977e0f61454e4b8c);
+        
+    
+        var popup_96bf2b2d0a17bd959ea67f907eaaa98d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b97bfd481c58852670c385978e8af6bf = $(`<div id="html_b97bfd481c58852670c385978e8af6bf" style="width: 100.0%; height: 100.0%;"><div style='width: 200px'><h4>Point 1</h4><p><b>total_birds:</b> 1376.0000</p></div></div>`)[0];
+                popup_96bf2b2d0a17bd959ea67f907eaaa98d.setContent(html_b97bfd481c58852670c385978e8af6bf);
+            
+        
+
+        circle_marker_cd9ca6376372eb91a3dde7340b89887f.bindPopup(popup_96bf2b2d0a17bd959ea67f907eaaa98d)
+        ;
+
+        
+    
+    
+            var circle_marker_1a4b4386fe68b3667ea6e38023eed368 = L.circleMarker(
+                [38.9072, -77.0369],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_77e43f639e51fa65977e0f61454e4b8c);
+        
+    
+        var popup_b266f9f4f222393913e81cb962cd5e65 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fd2550eab0c0ecb8e489fc0f6725613b = $(`<div id="html_fd2550eab0c0ecb8e489fc0f6725613b" style="width: 100.0%; height: 100.0%;"><div style='width: 200px'><h4>Point 2</h4><p><b>total_birds:</b> 3576.0000</p></div></div>`)[0];
+                popup_b266f9f4f222393913e81cb962cd5e65.setContent(html_fd2550eab0c0ecb8e489fc0f6725613b);
+            
+        
+
+        circle_marker_1a4b4386fe68b3667ea6e38023eed368.bindPopup(popup_b266f9f4f222393913e81cb962cd5e65)
+        ;
+
+        
+    
+    
+            var circle_marker_8dbbb94dbc8f6a4c5c01cc661e3a7094 = L.circleMarker(
+                [38.9072, -77.0369],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_77e43f639e51fa65977e0f61454e4b8c);
+        
+    
+        var popup_e5e9512dcdb3dbbbda9b16c410f49f34 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5f2bf10f09fc659a30e393c6866f86ad = $(`<div id="html_5f2bf10f09fc659a30e393c6866f86ad" style="width: 100.0%; height: 100.0%;"><div style='width: 200px'><h4>Point 3</h4><p><b>total_birds:</b> 1266.0000</p></div></div>`)[0];
+                popup_e5e9512dcdb3dbbbda9b16c410f49f34.setContent(html_5f2bf10f09fc659a30e393c6866f86ad);
+            
+        
+
+        circle_marker_8dbbb94dbc8f6a4c5c01cc661e3a7094.bindPopup(popup_e5e9512dcdb3dbbbda9b16c410f49f34)
+        ;
+
+        
+    
+    
+            var circle_marker_c2d5f4f1d4eaab2da99fd12ec6870887 = L.circleMarker(
+                [38.9072, -77.0369],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_77e43f639e51fa65977e0f61454e4b8c);
+        
+    
+        var popup_a3c5fa14bcaeaf88923f449147ab8cf9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_75f0ff1c576515ae213c841fe60fcf82 = $(`<div id="html_75f0ff1c576515ae213c841fe60fcf82" style="width: 100.0%; height: 100.0%;"><div style='width: 200px'><h4>Point 4</h4><p><b>total_birds:</b> 2141.0000</p></div></div>`)[0];
+                popup_a3c5fa14bcaeaf88923f449147ab8cf9.setContent(html_75f0ff1c576515ae213c841fe60fcf82);
+            
+        
+
+        circle_marker_c2d5f4f1d4eaab2da99fd12ec6870887.bindPopup(popup_a3c5fa14bcaeaf88923f449147ab8cf9)
+        ;
+
+        
+    
+    
+            var circle_marker_bfcbae95ce14b610d4dedfe793cbab31 = L.circleMarker(
+                [38.9072, -77.0369],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_77e43f639e51fa65977e0f61454e4b8c);
+        
+    
+        var popup_dd47ba21e82d912e0becb6b8cd8c882a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_200e596d2acaa102e4954d995d8b7cf9 = $(`<div id="html_200e596d2acaa102e4954d995d8b7cf9" style="width: 100.0%; height: 100.0%;"><div style='width: 200px'><h4>Point 5</h4><p><b>total_birds:</b> 3087.0000</p></div></div>`)[0];
+                popup_dd47ba21e82d912e0becb6b8cd8c882a.setContent(html_200e596d2acaa102e4954d995d8b7cf9);
+            
+        
+
+        circle_marker_bfcbae95ce14b610d4dedfe793cbab31.bindPopup(popup_dd47ba21e82d912e0becb6b8cd8c882a)
+        ;
+
+        
+    
+    
+            var circle_marker_88ed87b6f70f0ea10e80323ec9606e1f = L.circleMarker(
+                [38.9234, -76.9358],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_77e43f639e51fa65977e0f61454e4b8c);
+        
+    
+        var popup_1c3b661650ea5dbf20405b95bb4e89d3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c4343121dbf268301ee3416aeec1f53f = $(`<div id="html_c4343121dbf268301ee3416aeec1f53f" style="width: 100.0%; height: 100.0%;"><div style='width: 200px'><h4>Point 6</h4><p><b>total_birds:</b> 167.0000</p></div></div>`)[0];
+                popup_1c3b661650ea5dbf20405b95bb4e89d3.setContent(html_c4343121dbf268301ee3416aeec1f53f);
+            
+        
+
+        circle_marker_88ed87b6f70f0ea10e80323ec9606e1f.bindPopup(popup_1c3b661650ea5dbf20405b95bb4e89d3)
+        ;
+
+        
+    
+    
+            var circle_marker_72237be99ccfd7713c654c471c7206cb = L.circleMarker(
+                [38.9234, -76.9358],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_77e43f639e51fa65977e0f61454e4b8c);
+        
+    
+        var popup_ccb9826b0ab895f79b7d6cad0f7576e4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8102f691a1284f59d4c0fa2766846637 = $(`<div id="html_8102f691a1284f59d4c0fa2766846637" style="width: 100.0%; height: 100.0%;"><div style='width: 200px'><h4>Point 7</h4><p><b>total_birds:</b> 141.0000</p></div></div>`)[0];
+                popup_ccb9826b0ab895f79b7d6cad0f7576e4.setContent(html_8102f691a1284f59d4c0fa2766846637);
+            
+        
+
+        circle_marker_72237be99ccfd7713c654c471c7206cb.bindPopup(popup_ccb9826b0ab895f79b7d6cad0f7576e4)
+        ;
+
+        
+    
+    
+            var circle_marker_0a552d0062d3ab80af152ad7e85f8692 = L.circleMarker(
+                [38.9234, -76.9358],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_77e43f639e51fa65977e0f61454e4b8c);
+        
+    
+        var popup_3aa0aeb3cc49ae72d9ed3f6217bf9478 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9bb11f6bb1da8d92491031e38cc00977 = $(`<div id="html_9bb11f6bb1da8d92491031e38cc00977" style="width: 100.0%; height: 100.0%;"><div style='width: 200px'><h4>Point 8</h4><p><b>total_birds:</b> 60.0000</p></div></div>`)[0];
+                popup_3aa0aeb3cc49ae72d9ed3f6217bf9478.setContent(html_9bb11f6bb1da8d92491031e38cc00977);
+            
+        
+
+        circle_marker_0a552d0062d3ab80af152ad7e85f8692.bindPopup(popup_3aa0aeb3cc49ae72d9ed3f6217bf9478)
+        ;
+
+        
+    
+    
+            var circle_marker_a295fd5f47d44711d5bf2aa0170eb7d2 = L.circleMarker(
+                [38.9234, -76.9358],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_77e43f639e51fa65977e0f61454e4b8c);
+        
+    
+        var popup_811c6476b115c05ebf9c79c2c5af96c4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a3bc37688a92a1bb417998e31cd1b426 = $(`<div id="html_a3bc37688a92a1bb417998e31cd1b426" style="width: 100.0%; height: 100.0%;"><div style='width: 200px'><h4>Point 9</h4><p><b>total_birds:</b> 425.0000</p></div></div>`)[0];
+                popup_811c6476b115c05ebf9c79c2c5af96c4.setContent(html_a3bc37688a92a1bb417998e31cd1b426);
+            
+        
+
+        circle_marker_a295fd5f47d44711d5bf2aa0170eb7d2.bindPopup(popup_811c6476b115c05ebf9c79c2c5af96c4)
+        ;
+
+        
+    
+    
+            var circle_marker_446b6e08a3f865bbc374cf20cb150376 = L.circleMarker(
+                [38.9234, -76.9358],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_77e43f639e51fa65977e0f61454e4b8c);
+        
+    
+        var popup_6de5a43ba25863f661d45150a830774f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8c7068535f1505bf1d02971611d13758 = $(`<div id="html_8c7068535f1505bf1d02971611d13758" style="width: 100.0%; height: 100.0%;"><div style='width: 200px'><h4>Point 10</h4><p><b>total_birds:</b> 174.0000</p></div></div>`)[0];
+                popup_6de5a43ba25863f661d45150a830774f.setContent(html_8c7068535f1505bf1d02971611d13758);
+            
+        
+
+        circle_marker_446b6e08a3f865bbc374cf20cb150376.bindPopup(popup_6de5a43ba25863f661d45150a830774f)
+        ;
+
+        
+    
+    
+            var circle_marker_4239756331038c89ea083a16a787cc1d = L.circleMarker(
+                [38.9234, -76.9358],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_77e43f639e51fa65977e0f61454e4b8c);
+        
+    
+        var popup_ebe1ab85f72ea051251d011398d1ef63 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d0a878ae30d5b1c5ea6322abe0007879 = $(`<div id="html_d0a878ae30d5b1c5ea6322abe0007879" style="width: 100.0%; height: 100.0%;"><div style='width: 200px'><h4>Point 11</h4><p><b>total_birds:</b> 561.0000</p></div></div>`)[0];
+                popup_ebe1ab85f72ea051251d011398d1ef63.setContent(html_d0a878ae30d5b1c5ea6322abe0007879);
+            
+        
+
+        circle_marker_4239756331038c89ea083a16a787cc1d.bindPopup(popup_ebe1ab85f72ea051251d011398d1ef63)
+        ;
+
+        
+    
+    
+            var circle_marker_0b6ca8b46bbc1899c5cf094d44c6fd8a = L.circleMarker(
+                [38.8956, -76.9745],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_77e43f639e51fa65977e0f61454e4b8c);
+        
+    
+        var popup_6824c2b4d2c317865a31d7fb1711bde5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a36465b379ca36b41d7bd4bd7b5571cf = $(`<div id="html_a36465b379ca36b41d7bd4bd7b5571cf" style="width: 100.0%; height: 100.0%;"><div style='width: 200px'><h4>Point 12</h4><p><b>total_birds:</b> 1739.0000</p></div></div>`)[0];
+                popup_6824c2b4d2c317865a31d7fb1711bde5.setContent(html_a36465b379ca36b41d7bd4bd7b5571cf);
+            
+        
+
+        circle_marker_0b6ca8b46bbc1899c5cf094d44c6fd8a.bindPopup(popup_6824c2b4d2c317865a31d7fb1711bde5)
+        ;
+
+        
+    
+    
+            var circle_marker_0fd4f46cab910bebc18122db8955f7f5 = L.circleMarker(
+                [38.8956, -76.9745],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_77e43f639e51fa65977e0f61454e4b8c);
+        
+    
+        var popup_18dd496628f7ff84b1c6bf8fc193a66e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_08f2af7d809a17611a4571ecc4bdf72a = $(`<div id="html_08f2af7d809a17611a4571ecc4bdf72a" style="width: 100.0%; height: 100.0%;"><div style='width: 200px'><h4>Point 13</h4><p><b>total_birds:</b> 2428.0000</p></div></div>`)[0];
+                popup_18dd496628f7ff84b1c6bf8fc193a66e.setContent(html_08f2af7d809a17611a4571ecc4bdf72a);
+            
+        
+
+        circle_marker_0fd4f46cab910bebc18122db8955f7f5.bindPopup(popup_18dd496628f7ff84b1c6bf8fc193a66e)
+        ;
+
+        
+    
+    
+            var circle_marker_a52bf7b6543715dba7065e4afa94e65c = L.circleMarker(
+                [38.8956, -76.9745],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_77e43f639e51fa65977e0f61454e4b8c);
+        
+    
+        var popup_09e3c45134492b7d768591c0a461d364 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8cbbd0841f098dec0dce9bf5766b621c = $(`<div id="html_8cbbd0841f098dec0dce9bf5766b621c" style="width: 100.0%; height: 100.0%;"><div style='width: 200px'><h4>Point 14</h4><p><b>total_birds:</b> 1262.0000</p></div></div>`)[0];
+                popup_09e3c45134492b7d768591c0a461d364.setContent(html_8cbbd0841f098dec0dce9bf5766b621c);
+            
+        
+
+        circle_marker_a52bf7b6543715dba7065e4afa94e65c.bindPopup(popup_09e3c45134492b7d768591c0a461d364)
+        ;
+
+        
+    
+    
+            var circle_marker_ba8476fd8e17745d2495d78323a12a93 = L.circleMarker(
+                [38.8956, -76.9745],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_77e43f639e51fa65977e0f61454e4b8c);
+        
+    
+        var popup_b890de5eb72162d528bb065af311bdd2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7c0486211db58d969998d43f240c6825 = $(`<div id="html_7c0486211db58d969998d43f240c6825" style="width: 100.0%; height: 100.0%;"><div style='width: 200px'><h4>Point 15</h4><p><b>total_birds:</b> 1480.0000</p></div></div>`)[0];
+                popup_b890de5eb72162d528bb065af311bdd2.setContent(html_7c0486211db58d969998d43f240c6825);
+            
+        
+
+        circle_marker_ba8476fd8e17745d2495d78323a12a93.bindPopup(popup_b890de5eb72162d528bb065af311bdd2)
+        ;
+
+        
+    
+    
+            var circle_marker_ceb643aa5d9b0de98d57d8238c285e97 = L.circleMarker(
+                [38.8956, -76.9745],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_77e43f639e51fa65977e0f61454e4b8c);
+        
+    
+        var popup_5033492ba58b5a92e072fd5603ecf6e1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c9b729bc72740f86e39ee71fbff86b86 = $(`<div id="html_c9b729bc72740f86e39ee71fbff86b86" style="width: 100.0%; height: 100.0%;"><div style='width: 200px'><h4>Point 16</h4><p><b>total_birds:</b> 710.0000</p></div></div>`)[0];
+                popup_5033492ba58b5a92e072fd5603ecf6e1.setContent(html_c9b729bc72740f86e39ee71fbff86b86);
+            
+        
+
+        circle_marker_ceb643aa5d9b0de98d57d8238c285e97.bindPopup(popup_5033492ba58b5a92e072fd5603ecf6e1)
+        ;
+
+        
+    
+    
+            var circle_marker_84d2f6680b2da1b19af23774a2ac8987 = L.circleMarker(
+                [38.8956, -76.9745],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_77e43f639e51fa65977e0f61454e4b8c);
+        
+    
+        var popup_4675eb482f6a8de93d1f4cb2c7797e06 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_31e120899a0c1760549ae6e533b66744 = $(`<div id="html_31e120899a0c1760549ae6e533b66744" style="width: 100.0%; height: 100.0%;"><div style='width: 200px'><h4>Point 17</h4><p><b>total_birds:</b> 524.0000</p></div></div>`)[0];
+                popup_4675eb482f6a8de93d1f4cb2c7797e06.setContent(html_31e120899a0c1760549ae6e533b66744);
+            
+        
+
+        circle_marker_84d2f6680b2da1b19af23774a2ac8987.bindPopup(popup_4675eb482f6a8de93d1f4cb2c7797e06)
+        ;
+
+        
+    
+    
+            var circle_marker_ec0e0f4c7b6761af5b505ab1f61d459e = L.circleMarker(
+                [38.8678, -77.0234],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_77e43f639e51fa65977e0f61454e4b8c);
+        
+    
+        var popup_b89e0c6fa4433c7760abdc2f12957a73 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_74a9a97c3da8369f33fde97603ef3fa9 = $(`<div id="html_74a9a97c3da8369f33fde97603ef3fa9" style="width: 100.0%; height: 100.0%;"><div style='width: 200px'><h4>Point 18</h4><p><b>total_birds:</b> 2453.0000</p></div></div>`)[0];
+                popup_b89e0c6fa4433c7760abdc2f12957a73.setContent(html_74a9a97c3da8369f33fde97603ef3fa9);
+            
+        
+
+        circle_marker_ec0e0f4c7b6761af5b505ab1f61d459e.bindPopup(popup_b89e0c6fa4433c7760abdc2f12957a73)
+        ;
+
+        
+    
+    
+            var circle_marker_bd1897e071e663e19a2a37d9d78f1651 = L.circleMarker(
+                [38.8678, -77.0234],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_77e43f639e51fa65977e0f61454e4b8c);
+        
+    
+        var popup_a9787f2548c8cca2ce6c3711e437d7cb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f04da4c1a5ca03b23cfee87449c67e81 = $(`<div id="html_f04da4c1a5ca03b23cfee87449c67e81" style="width: 100.0%; height: 100.0%;"><div style='width: 200px'><h4>Point 19</h4><p><b>total_birds:</b> 36192.0000</p></div></div>`)[0];
+                popup_a9787f2548c8cca2ce6c3711e437d7cb.setContent(html_f04da4c1a5ca03b23cfee87449c67e81);
+            
+        
+
+        circle_marker_bd1897e071e663e19a2a37d9d78f1651.bindPopup(popup_a9787f2548c8cca2ce6c3711e437d7cb)
+        ;
+
+        
+    
+    
+            var circle_marker_6fd8324488af26d4a3977efc015c7603 = L.circleMarker(
+                [38.8678, -77.0234],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_77e43f639e51fa65977e0f61454e4b8c);
+        
+    
+        var popup_be58e02851dbff69180c99b663e1390c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3f15f760d315ffdc8ce61279953e9f4f = $(`<div id="html_3f15f760d315ffdc8ce61279953e9f4f" style="width: 100.0%; height: 100.0%;"><div style='width: 200px'><h4>Point 20</h4><p><b>total_birds:</b> 43787.0000</p></div></div>`)[0];
+                popup_be58e02851dbff69180c99b663e1390c.setContent(html_3f15f760d315ffdc8ce61279953e9f4f);
+            
+        
+
+        circle_marker_6fd8324488af26d4a3977efc015c7603.bindPopup(popup_be58e02851dbff69180c99b663e1390c)
+        ;
+
+        
+    
+    
+            var circle_marker_67a81e94e627585819be19ff852099eb = L.circleMarker(
+                [38.8678, -77.0234],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_77e43f639e51fa65977e0f61454e4b8c);
+        
+    
+        var popup_b60b4b0842ef4993bb9eb45aa3270d31 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6e607077a411054e4137bc76b7a5c85b = $(`<div id="html_6e607077a411054e4137bc76b7a5c85b" style="width: 100.0%; height: 100.0%;"><div style='width: 200px'><h4>Point 21</h4><p><b>total_birds:</b> 48365.0000</p></div></div>`)[0];
+                popup_b60b4b0842ef4993bb9eb45aa3270d31.setContent(html_6e607077a411054e4137bc76b7a5c85b);
+            
+        
+
+        circle_marker_67a81e94e627585819be19ff852099eb.bindPopup(popup_b60b4b0842ef4993bb9eb45aa3270d31)
+        ;
+
+        
+    
+    
+            var circle_marker_219478d23964f56096aca11316ab87d6 = L.circleMarker(
+                [38.8678, -77.0234],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_77e43f639e51fa65977e0f61454e4b8c);
+        
+    
+        var popup_a099c26a984c1f190f81afb6647f49ec = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f67e0a0af127fccec9167e3f0c37622f = $(`<div id="html_f67e0a0af127fccec9167e3f0c37622f" style="width: 100.0%; height: 100.0%;"><div style='width: 200px'><h4>Point 22</h4><p><b>total_birds:</b> 20845.0000</p></div></div>`)[0];
+                popup_a099c26a984c1f190f81afb6647f49ec.setContent(html_f67e0a0af127fccec9167e3f0c37622f);
+            
+        
+
+        circle_marker_219478d23964f56096aca11316ab87d6.bindPopup(popup_a099c26a984c1f190f81afb6647f49ec)
+        ;
+
+        
+    
+    
+            var circle_marker_b91298d8e0fb9041820d471be2191188 = L.circleMarker(
+                [38.8678, -77.0234],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_77e43f639e51fa65977e0f61454e4b8c);
+        
+    
+        var popup_62d9e48895188153311b873ad7b3bcdf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a436c700344fa2e714f32c1255b205b1 = $(`<div id="html_a436c700344fa2e714f32c1255b205b1" style="width: 100.0%; height: 100.0%;"><div style='width: 200px'><h4>Point 23</h4><p><b>total_birds:</b> 22283.0000</p></div></div>`)[0];
+                popup_62d9e48895188153311b873ad7b3bcdf.setContent(html_a436c700344fa2e714f32c1255b205b1);
+            
+        
+
+        circle_marker_b91298d8e0fb9041820d471be2191188.bindPopup(popup_62d9e48895188153311b873ad7b3bcdf)
+        ;
+
+        
+    
+    
+            feature_group_77e43f639e51fa65977e0f61454e4b8c.addTo(map_a3f052726d6f0a5cb5ff58765401bf6e);
+        
+    
+            L.control.fullscreen(
+                {
+  "position": "topleft",
+  "title": "Full Screen",
+  "titleCancel": "Exit Full Screen",
+  "forceSeparateButton": false,
+}
+            ).addTo(map_a3f052726d6f0a5cb5ff58765401bf6e);
+        
+    
+            var mouse_position_49be561c6197caebf0e15f5101191f16 = new L.Control.MousePosition(
+                {
+  "position": "bottomright",
+  "separator": " : ",
+  "emptyString": "Unavailable",
+  "lngFirst": false,
+  "numDigits": 5,
+  "prefix": "",
+}
+            );
+            mouse_position_49be561c6197caebf0e15f5101191f16.options["latFormatter"] =
+                undefined;
+            mouse_position_49be561c6197caebf0e15f5101191f16.options["lngFormatter"] =
+                undefined;
+            map_a3f052726d6f0a5cb5ff58765401bf6e.addControl(mouse_position_49be561c6197caebf0e15f5101191f16);
+        
+    
+            var measure_control_d86159e8a59b436a8bb715ea93df70ca = new L.Control.Measure(
+                {
+  "position": "topright",
+  "primaryLengthUnit": "meters",
+  "secondaryLengthUnit": "miles",
+  "primaryAreaUnit": "sqmeters",
+  "secondaryAreaUnit": "acres",
+});
+            map_a3f052726d6f0a5cb5ff58765401bf6e.addControl(measure_control_d86159e8a59b436a8bb715ea93df70ca);
+
+            // Workaround for using this plugin with Leaflet>=1.8.0
+            // https://github.com/ljagis/leaflet-measure/issues/171
+            L.Control.Measure.include({
+                _setCaptureMarkerIcon: function () {
+                    // disable autopan
+                    this._captureMarker.options.autoPanOnFocus = false;
+                    // default function
+                    this._captureMarker.setIcon(
+                        L.divIcon({
+                            iconSize: this._map.getSize().multiplyBy(2)
+                        })
+                    );
+                },
+            });
+
+        
+    
+            var layer_control_ba8dff7abf422b1bf472cfce1190afb4_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_86fe189c3fde37554db5ee93f90429db,
+                    "Light Map" : tile_layer_5be601a9100da2657e8c7f8031245be9,
+                    "Dark Map" : tile_layer_ef52759f122fdb147559e88486539113,
+                    "Terrain Map" : tile_layer_eda91665adbbf4ca9431c14f29165fe1,
+                },
+                overlays :  {
+                    "I-95 Detailed Route" : feature_group_18d1957d43d734b122498e9a1451ef59,
+                    "I-95 Waypoints" : feature_group_3502de786bd1584104212941b2a842c1,
+                    "Data Points" : feature_group_77e43f639e51fa65977e0f61454e4b8c,
+                },
+            };
+            let layer_control_ba8dff7abf422b1bf472cfce1190afb4 = L.control.layers(
+                layer_control_ba8dff7abf422b1bf472cfce1190afb4_layers.base_layers,
+                layer_control_ba8dff7abf422b1bf472cfce1190afb4_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_a3f052726d6f0a5cb5ff58765401bf6e);
+
+        
+    
+            var tile_layer_c7d6240aad13e5bf2bc37725945c6cf8 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detect_retina": false, "max_native_zoom": 19, "max_zoom": 19, "min_zoom": 0, "no_wrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+            var mini_map_3cc56a412070bba12425a64e1c728115 = new L.Control.MiniMap(
+                tile_layer_c7d6240aad13e5bf2bc37725945c6cf8,
+                {
+  "position": "bottomright",
+  "width": 150,
+  "height": 150,
+  "collapsedWidth": 25,
+  "collapsedHeight": 25,
+  "zoomLevelOffset": -5,
+  "centerFixed": false,
+  "zoomAnimation": false,
+  "toggleDisplay": false,
+  "autoToggleDisplay": false,
+  "minimized": false,
+}
+            );
+            map_a3f052726d6f0a5cb5ff58765401bf6e.addControl(mini_map_3cc56a412070bba12425a64e1c728115);
+        
+</script>
+</html>
