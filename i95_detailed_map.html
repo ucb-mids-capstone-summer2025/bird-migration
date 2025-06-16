@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_3133bb2f2b75de0fa2e8cc25529b1003 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/ardhi/Leaflet.MousePosition/src/L.Control.MousePosition.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ardhi/Leaflet.MousePosition/src/L.Control.MousePosition.min.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"/>
+</head>
+<body>
+    
+    
+<div style="position: fixed; 
+    top: 10px; left: 50px; width: 200px; height: 50px; 
+    background-color: white; border:2px solid grey; z-index:9999; 
+    font-size:16px; padding: 10px">
+    <b>Interstate 95 Route Map</b>
+</div>
+    
+            <div class="folium-map" id="map_3133bb2f2b75de0fa2e8cc25529b1003" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_3133bb2f2b75de0fa2e8cc25529b1003 = L.map(
+                "map_3133bb2f2b75de0fa2e8cc25529b1003",
+                {
+                    center: [40.0, -75.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 5,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_6511f412ad6d223ea826cff2d3385b94 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_6511f412ad6d223ea826cff2d3385b94.addTo(map_3133bb2f2b75de0fa2e8cc25529b1003);
+        
+    
+            var feature_group_e5674c6fece4117251bdd2c81b9c54f9 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var poly_line_cd0f4c2e9ce4862f4ce2b7ee65021014 = L.polyline(
+                [[25.7617, -80.1918], [26.1224, -80.1373], [28.5383, -81.3792], [30.3322, -81.6557], [32.0809, -81.0912], [34.0007, -81.0348], [35.7796, -78.6382], [37.5407, -77.436], [38.9072, -77.0369], [39.2904, -76.6122], [39.9526, -75.1652], [40.7128, -74.006], [41.3083, -72.9279], [41.824, -71.4128], [42.3601, -71.0589], [43.0693, -70.7621], [45.137451, -67.781189]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_e5674c6fece4117251bdd2c81b9c54f9);
+        
+    
+        var popup_1e8dce1709837277b5be77dc98dbf515 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8e54dfd51cab2da82b39ca561f972142 = $(`<div id="html_8e54dfd51cab2da82b39ca561f972142" style="width: 100.0%; height: 100.0%;">Interstate 95</div>`)[0];
+                popup_1e8dce1709837277b5be77dc98dbf515.setContent(html_8e54dfd51cab2da82b39ca561f972142);
+            
+        
+
+        poly_line_cd0f4c2e9ce4862f4ce2b7ee65021014.bindPopup(popup_1e8dce1709837277b5be77dc98dbf515)
+        ;
+
+        
+    
+    
+            feature_group_e5674c6fece4117251bdd2c81b9c54f9.addTo(map_3133bb2f2b75de0fa2e8cc25529b1003);
+        
+    
+            var feature_group_7293ad65c79648e26a2abc9a4653cd38 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_22549d46479470bf33419e211ce9eb53 = L.circleMarker(
+                [25.7617, -80.1918],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7293ad65c79648e26a2abc9a4653cd38);
+        
+    
+        var popup_286b1d54d834c89c6fa6ce38766c9a75 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0d1ae034f04c714dfdfeae1c2cc0b60b = $(`<div id="html_0d1ae034f04c714dfdfeae1c2cc0b60b" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>Miami, FL</h4>         <p>Coordinates: 25.7617, -80.1918</p>         <p>Major city along I-95</p>     </div>     </div>`)[0];
+                popup_286b1d54d834c89c6fa6ce38766c9a75.setContent(html_0d1ae034f04c714dfdfeae1c2cc0b60b);
+            
+        
+
+        circle_marker_22549d46479470bf33419e211ce9eb53.bindPopup(popup_286b1d54d834c89c6fa6ce38766c9a75)
+        ;
+
+        
+    
+    
+            var circle_marker_b5fa5e20ca4096f902332d07b412a8a3 = L.circleMarker(
+                [26.1224, -80.1373],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7293ad65c79648e26a2abc9a4653cd38);
+        
+    
+        var popup_a03343e0ac4f4d3b90816b79e137ee46 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9816afa0a93665fba97e5e1f7851c54a = $(`<div id="html_9816afa0a93665fba97e5e1f7851c54a" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>Fort Lauderdale, FL</h4>         <p>Coordinates: 26.1224, -80.1373</p>         <p>Major city along I-95</p>     </div>     </div>`)[0];
+                popup_a03343e0ac4f4d3b90816b79e137ee46.setContent(html_9816afa0a93665fba97e5e1f7851c54a);
+            
+        
+
+        circle_marker_b5fa5e20ca4096f902332d07b412a8a3.bindPopup(popup_a03343e0ac4f4d3b90816b79e137ee46)
+        ;
+
+        
+    
+    
+            var circle_marker_5defeba018edbca20445b427bbe4f0ea = L.circleMarker(
+                [28.5383, -81.3792],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7293ad65c79648e26a2abc9a4653cd38);
+        
+    
+        var popup_1b7d0abd3ef4c6881645929918ab5912 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c0635402e36778c65346c1df6cd476d9 = $(`<div id="html_c0635402e36778c65346c1df6cd476d9" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>Orlando, FL</h4>         <p>Coordinates: 28.5383, -81.3792</p>         <p>Major city along I-95</p>     </div>     </div>`)[0];
+                popup_1b7d0abd3ef4c6881645929918ab5912.setContent(html_c0635402e36778c65346c1df6cd476d9);
+            
+        
+
+        circle_marker_5defeba018edbca20445b427bbe4f0ea.bindPopup(popup_1b7d0abd3ef4c6881645929918ab5912)
+        ;
+
+        
+    
+    
+            var circle_marker_581e14c71f69faeaafababfb6de0e332 = L.circleMarker(
+                [30.3322, -81.6557],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7293ad65c79648e26a2abc9a4653cd38);
+        
+    
+        var popup_f849f418b5f2009f76b907e55234100f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d2d139dbbc24da272771009751508bb4 = $(`<div id="html_d2d139dbbc24da272771009751508bb4" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>Jacksonville, FL</h4>         <p>Coordinates: 30.3322, -81.6557</p>         <p>Major city along I-95</p>     </div>     </div>`)[0];
+                popup_f849f418b5f2009f76b907e55234100f.setContent(html_d2d139dbbc24da272771009751508bb4);
+            
+        
+
+        circle_marker_581e14c71f69faeaafababfb6de0e332.bindPopup(popup_f849f418b5f2009f76b907e55234100f)
+        ;
+
+        
+    
+    
+            var circle_marker_e627bf27b4f819525ce68ad5452b9ce2 = L.circleMarker(
+                [32.0809, -81.0912],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7293ad65c79648e26a2abc9a4653cd38);
+        
+    
+        var popup_02a9d5a9d02ad4ea8b6a54cdf669c9ba = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bdbee5bc32dec81daa6b62a39cfa1374 = $(`<div id="html_bdbee5bc32dec81daa6b62a39cfa1374" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>Savannah, GA</h4>         <p>Coordinates: 32.0809, -81.0912</p>         <p>Major city along I-95</p>     </div>     </div>`)[0];
+                popup_02a9d5a9d02ad4ea8b6a54cdf669c9ba.setContent(html_bdbee5bc32dec81daa6b62a39cfa1374);
+            
+        
+
+        circle_marker_e627bf27b4f819525ce68ad5452b9ce2.bindPopup(popup_02a9d5a9d02ad4ea8b6a54cdf669c9ba)
+        ;
+
+        
+    
+    
+            var circle_marker_1e3adedd6376f353906353a4693ec771 = L.circleMarker(
+                [34.0007, -81.0348],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7293ad65c79648e26a2abc9a4653cd38);
+        
+    
+        var popup_e0ed79de130fa44bb7cdcff9a149c08e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9681be6fe99bc7edddc0f07da2c80a24 = $(`<div id="html_9681be6fe99bc7edddc0f07da2c80a24" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>Columbia, SC</h4>         <p>Coordinates: 34.0007, -81.0348</p>         <p>Major city along I-95</p>     </div>     </div>`)[0];
+                popup_e0ed79de130fa44bb7cdcff9a149c08e.setContent(html_9681be6fe99bc7edddc0f07da2c80a24);
+            
+        
+
+        circle_marker_1e3adedd6376f353906353a4693ec771.bindPopup(popup_e0ed79de130fa44bb7cdcff9a149c08e)
+        ;
+
+        
+    
+    
+            var circle_marker_eaec561e3a537f3c7f56b433fb790909 = L.circleMarker(
+                [35.7796, -78.6382],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7293ad65c79648e26a2abc9a4653cd38);
+        
+    
+        var popup_c79c2b8195a4a496c6c59694c757a1ed = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_03059a79a6e136a22c1e33c760f9e2d4 = $(`<div id="html_03059a79a6e136a22c1e33c760f9e2d4" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>Raleigh, NC</h4>         <p>Coordinates: 35.7796, -78.6382</p>         <p>Major city along I-95</p>     </div>     </div>`)[0];
+                popup_c79c2b8195a4a496c6c59694c757a1ed.setContent(html_03059a79a6e136a22c1e33c760f9e2d4);
+            
+        
+
+        circle_marker_eaec561e3a537f3c7f56b433fb790909.bindPopup(popup_c79c2b8195a4a496c6c59694c757a1ed)
+        ;
+
+        
+    
+    
+            var circle_marker_bf6c790795c547313b6c2fe75fcfa024 = L.circleMarker(
+                [37.5407, -77.436],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7293ad65c79648e26a2abc9a4653cd38);
+        
+    
+        var popup_490d76cbfa9131956ecccc81189f20b3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_56da3d2fff3a31edb851bc08f08fac02 = $(`<div id="html_56da3d2fff3a31edb851bc08f08fac02" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>Richmond, VA</h4>         <p>Coordinates: 37.5407, -77.4360</p>         <p>Major city along I-95</p>     </div>     </div>`)[0];
+                popup_490d76cbfa9131956ecccc81189f20b3.setContent(html_56da3d2fff3a31edb851bc08f08fac02);
+            
+        
+
+        circle_marker_bf6c790795c547313b6c2fe75fcfa024.bindPopup(popup_490d76cbfa9131956ecccc81189f20b3)
+        ;
+
+        
+    
+    
+            var circle_marker_591b2633b2742e179a3dbe4f22b75cfc = L.circleMarker(
+                [38.9072, -77.0369],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7293ad65c79648e26a2abc9a4653cd38);
+        
+    
+        var popup_51a5d728eb7b3c1448a42dd4d92bbe0a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0a1c4ef41dad2e65dfe15a9955e05c19 = $(`<div id="html_0a1c4ef41dad2e65dfe15a9955e05c19" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>Washington, DC</h4>         <p>Coordinates: 38.9072, -77.0369</p>         <p>Major city along I-95</p>     </div>     </div>`)[0];
+                popup_51a5d728eb7b3c1448a42dd4d92bbe0a.setContent(html_0a1c4ef41dad2e65dfe15a9955e05c19);
+            
+        
+
+        circle_marker_591b2633b2742e179a3dbe4f22b75cfc.bindPopup(popup_51a5d728eb7b3c1448a42dd4d92bbe0a)
+        ;
+
+        
+    
+    
+            var circle_marker_34fe80bd6c392239733d5105e941581d = L.circleMarker(
+                [39.2904, -76.6122],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7293ad65c79648e26a2abc9a4653cd38);
+        
+    
+        var popup_688ff85af53f1e6bbcedf2f0eb0e986f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_00016bf474d2cead89039c42acd4df10 = $(`<div id="html_00016bf474d2cead89039c42acd4df10" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>Baltimore, MD</h4>         <p>Coordinates: 39.2904, -76.6122</p>         <p>Major city along I-95</p>     </div>     </div>`)[0];
+                popup_688ff85af53f1e6bbcedf2f0eb0e986f.setContent(html_00016bf474d2cead89039c42acd4df10);
+            
+        
+
+        circle_marker_34fe80bd6c392239733d5105e941581d.bindPopup(popup_688ff85af53f1e6bbcedf2f0eb0e986f)
+        ;
+
+        
+    
+    
+            var circle_marker_b3baa90f69aeac6d068d53c9e78685f0 = L.circleMarker(
+                [39.9526, -75.1652],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7293ad65c79648e26a2abc9a4653cd38);
+        
+    
+        var popup_42d379e2e843077bc1497218be72bcf4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e3a85b59d80ac34061f5c1b3de154a95 = $(`<div id="html_e3a85b59d80ac34061f5c1b3de154a95" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>Philadelphia, PA</h4>         <p>Coordinates: 39.9526, -75.1652</p>         <p>Major city along I-95</p>     </div>     </div>`)[0];
+                popup_42d379e2e843077bc1497218be72bcf4.setContent(html_e3a85b59d80ac34061f5c1b3de154a95);
+            
+        
+
+        circle_marker_b3baa90f69aeac6d068d53c9e78685f0.bindPopup(popup_42d379e2e843077bc1497218be72bcf4)
+        ;
+
+        
+    
+    
+            var circle_marker_727234f0697b11853c887dad388c2b39 = L.circleMarker(
+                [40.7128, -74.006],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7293ad65c79648e26a2abc9a4653cd38);
+        
+    
+        var popup_f6eba225b2bb7e8ebd2e86bbd79c4cc8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a083d54ffa049a4d454fd48d801884cb = $(`<div id="html_a083d54ffa049a4d454fd48d801884cb" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>New York City, NY</h4>         <p>Coordinates: 40.7128, -74.0060</p>         <p>Major city along I-95</p>     </div>     </div>`)[0];
+                popup_f6eba225b2bb7e8ebd2e86bbd79c4cc8.setContent(html_a083d54ffa049a4d454fd48d801884cb);
+            
+        
+
+        circle_marker_727234f0697b11853c887dad388c2b39.bindPopup(popup_f6eba225b2bb7e8ebd2e86bbd79c4cc8)
+        ;
+
+        
+    
+    
+            var circle_marker_20ac8b9f4b45b321f7b29f3e0fa14e97 = L.circleMarker(
+                [41.3083, -72.9279],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7293ad65c79648e26a2abc9a4653cd38);
+        
+    
+        var popup_f872860894b737039854216cffd6e429 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b201ae811762c042d191174343f371bd = $(`<div id="html_b201ae811762c042d191174343f371bd" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>New Haven, CT</h4>         <p>Coordinates: 41.3083, -72.9279</p>         <p>Major city along I-95</p>     </div>     </div>`)[0];
+                popup_f872860894b737039854216cffd6e429.setContent(html_b201ae811762c042d191174343f371bd);
+            
+        
+
+        circle_marker_20ac8b9f4b45b321f7b29f3e0fa14e97.bindPopup(popup_f872860894b737039854216cffd6e429)
+        ;
+
+        
+    
+    
+            var circle_marker_3050d1387b6ca1b82e47fa8d37a8e7af = L.circleMarker(
+                [41.824, -71.4128],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7293ad65c79648e26a2abc9a4653cd38);
+        
+    
+        var popup_c87a94e6ed279567c954761961db450c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e550c65fbf55356539234694665a5844 = $(`<div id="html_e550c65fbf55356539234694665a5844" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>Providence, RI</h4>         <p>Coordinates: 41.8240, -71.4128</p>         <p>Major city along I-95</p>     </div>     </div>`)[0];
+                popup_c87a94e6ed279567c954761961db450c.setContent(html_e550c65fbf55356539234694665a5844);
+            
+        
+
+        circle_marker_3050d1387b6ca1b82e47fa8d37a8e7af.bindPopup(popup_c87a94e6ed279567c954761961db450c)
+        ;
+
+        
+    
+    
+            var circle_marker_39b62d335900d4d509987dda8c3a88d2 = L.circleMarker(
+                [42.3601, -71.0589],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7293ad65c79648e26a2abc9a4653cd38);
+        
+    
+        var popup_2eef7937e6da8dea597492913cb36950 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_526cc20dfb6d29de9c46fecf38c897f0 = $(`<div id="html_526cc20dfb6d29de9c46fecf38c897f0" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>Boston, MA</h4>         <p>Coordinates: 42.3601, -71.0589</p>         <p>Major city along I-95</p>     </div>     </div>`)[0];
+                popup_2eef7937e6da8dea597492913cb36950.setContent(html_526cc20dfb6d29de9c46fecf38c897f0);
+            
+        
+
+        circle_marker_39b62d335900d4d509987dda8c3a88d2.bindPopup(popup_2eef7937e6da8dea597492913cb36950)
+        ;
+
+        
+    
+    
+            var circle_marker_b659f44ee0578bd83f4c17b4e6e9632c = L.circleMarker(
+                [43.0693, -70.7621],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7293ad65c79648e26a2abc9a4653cd38);
+        
+    
+        var popup_feeec5c225244a40b0728f6474209fdc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bb1b7df23d7565cd1bc89fa61b8076c9 = $(`<div id="html_bb1b7df23d7565cd1bc89fa61b8076c9" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>Portsmouth, NH</h4>         <p>Coordinates: 43.0693, -70.7621</p>         <p>Major city along I-95</p>     </div>     </div>`)[0];
+                popup_feeec5c225244a40b0728f6474209fdc.setContent(html_bb1b7df23d7565cd1bc89fa61b8076c9);
+            
+        
+
+        circle_marker_b659f44ee0578bd83f4c17b4e6e9632c.bindPopup(popup_feeec5c225244a40b0728f6474209fdc)
+        ;
+
+        
+    
+    
+            var circle_marker_e4637de21ea395233a464b8424dcb260 = L.circleMarker(
+                [45.137451, -67.781189],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(feature_group_7293ad65c79648e26a2abc9a4653cd38);
+        
+    
+        var popup_fd33c866ec8a07123dcf701c03f4f4bf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_774657f3cbc7f36d2739ccf07f990ee7 = $(`<div id="html_774657f3cbc7f36d2739ccf07f990ee7" style="width: 100.0%; height: 100.0%;">     <div style="width: 200px">         <h4>Maine Border</h4>         <p>Coordinates: 45.1375, -67.7812</p>         <p>Major city along I-95</p>     </div>     </div>`)[0];
+                popup_fd33c866ec8a07123dcf701c03f4f4bf.setContent(html_774657f3cbc7f36d2739ccf07f990ee7);
+            
+        
+
+        circle_marker_e4637de21ea395233a464b8424dcb260.bindPopup(popup_fd33c866ec8a07123dcf701c03f4f4bf)
+        ;
+
+        
+    
+    
+            feature_group_7293ad65c79648e26a2abc9a4653cd38.addTo(map_3133bb2f2b75de0fa2e8cc25529b1003);
+        
+    
+            var tile_layer_8a4884e08bbd537e0e07ba196887efd5 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_8a4884e08bbd537e0e07ba196887efd5.addTo(map_3133bb2f2b75de0fa2e8cc25529b1003);
+        
+    
+            var tile_layer_be73f5f9ff1a187b4ac3ac05ec8b6008 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_be73f5f9ff1a187b4ac3ac05ec8b6008.addTo(map_3133bb2f2b75de0fa2e8cc25529b1003);
+        
+    
+            var tile_layer_80f8184e6bc554dd5b3775e3f4bd31e4 = L.tileLayer(
+                "Stamen Terrain",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Map tiles by \u003ca href=\"http://stamen.com\"\u003eStamen Design\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by/3.0\"\u003eCC BY 3.0\u003c/a\u003e. Data by \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_80f8184e6bc554dd5b3775e3f4bd31e4.addTo(map_3133bb2f2b75de0fa2e8cc25529b1003);
+        
+    
+            L.control.fullscreen(
+                {
+  "position": "topleft",
+  "title": "Full Screen",
+  "titleCancel": "Exit Full Screen",
+  "forceSeparateButton": false,
+}
+            ).addTo(map_3133bb2f2b75de0fa2e8cc25529b1003);
+        
+    
+            var mouse_position_ccd45afcbfd0325f9f3dbb8c3a1cfd11 = new L.Control.MousePosition(
+                {
+  "position": "bottomright",
+  "separator": " : ",
+  "emptyString": "Unavailable",
+  "lngFirst": false,
+  "numDigits": 5,
+  "prefix": "",
+}
+            );
+            mouse_position_ccd45afcbfd0325f9f3dbb8c3a1cfd11.options["latFormatter"] =
+                undefined;
+            mouse_position_ccd45afcbfd0325f9f3dbb8c3a1cfd11.options["lngFormatter"] =
+                undefined;
+            map_3133bb2f2b75de0fa2e8cc25529b1003.addControl(mouse_position_ccd45afcbfd0325f9f3dbb8c3a1cfd11);
+        
+    
+            var measure_control_beef4c62c30d967a409c01e8d7f12efd = new L.Control.Measure(
+                {
+  "position": "topright",
+  "primaryLengthUnit": "meters",
+  "secondaryLengthUnit": "miles",
+  "primaryAreaUnit": "sqmeters",
+  "secondaryAreaUnit": "acres",
+});
+            map_3133bb2f2b75de0fa2e8cc25529b1003.addControl(measure_control_beef4c62c30d967a409c01e8d7f12efd);
+
+            // Workaround for using this plugin with Leaflet>=1.8.0
+            // https://github.com/ljagis/leaflet-measure/issues/171
+            L.Control.Measure.include({
+                _setCaptureMarkerIcon: function () {
+                    // disable autopan
+                    this._captureMarker.options.autoPanOnFocus = false;
+                    // default function
+                    this._captureMarker.setIcon(
+                        L.divIcon({
+                            iconSize: this._map.getSize().multiplyBy(2)
+                        })
+                    );
+                },
+            });
+
+        
+    
+            var layer_control_f308d1560b98c0a6f71246e4c27435cd_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_6511f412ad6d223ea826cff2d3385b94,
+                    "Light Map" : tile_layer_8a4884e08bbd537e0e07ba196887efd5,
+                    "Dark Map" : tile_layer_be73f5f9ff1a187b4ac3ac05ec8b6008,
+                    "Terrain Map" : tile_layer_80f8184e6bc554dd5b3775e3f4bd31e4,
+                },
+                overlays :  {
+                    "I-95 Route" : feature_group_e5674c6fece4117251bdd2c81b9c54f9,
+                    "Major Cities" : feature_group_7293ad65c79648e26a2abc9a4653cd38,
+                },
+            };
+            let layer_control_f308d1560b98c0a6f71246e4c27435cd = L.control.layers(
+                layer_control_f308d1560b98c0a6f71246e4c27435cd_layers.base_layers,
+                layer_control_f308d1560b98c0a6f71246e4c27435cd_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_3133bb2f2b75de0fa2e8cc25529b1003);
+
+        
+    
+            var tile_layer_df409fe01a250afe5dc95d474ea4f60e = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detect_retina": false, "max_native_zoom": 19, "max_zoom": 19, "min_zoom": 0, "no_wrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+            var mini_map_1575748f6f0a97d7b17af83112c3c193 = new L.Control.MiniMap(
+                tile_layer_df409fe01a250afe5dc95d474ea4f60e,
+                {
+  "position": "bottomright",
+  "width": 150,
+  "height": 150,
+  "collapsedWidth": 25,
+  "collapsedHeight": 25,
+  "zoomLevelOffset": -5,
+  "centerFixed": false,
+  "zoomAnimation": false,
+  "toggleDisplay": false,
+  "autoToggleDisplay": false,
+  "minimized": false,
+}
+            );
+            map_3133bb2f2b75de0fa2e8cc25529b1003.addControl(mini_map_1575748f6f0a97d7b17af83112c3c193);
+        
+</script>
+</html>
