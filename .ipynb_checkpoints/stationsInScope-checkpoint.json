@@ -1,0 +1,32 @@
+[
+    {
+        "station_id":"160005",
+        "daily_avg_noise":90.25,
+        "longitude":-77.51,
+        "latitude":38.14
+    },
+    {
+        "station_id":"140004",
+        "daily_avg_noise":89.72,
+        "longitude":-77.46,
+        "latitude":37.82
+    },
+    {
+        "station_id":"160308",
+        "daily_avg_noise":89.6,
+        "longitude":-77.46,
+        "latitude":37.89
+    },
+    {
+        "station_id":"060170",
+        "daily_avg_noise":89.25,
+        "longitude":-77.52,
+        "latitude":38.12
+    },
+    {
+        "station_id":"792625",
+        "daily_avg_noise":76.76,
+        "longitude":-77.49,
+        "latitude":37.98
+    }
+]
