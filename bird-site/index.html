@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bird Migration & Highway Noise</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero-section text-center text-white bg-primary py-5">
+    <div class="container">
+      <h1 class="display-4">Bird Migration & Highway Noise</h1>
+      <p class="lead">Exploring how traffic sounds shape avian paths</p>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="bg-light py-4 text-center">
+    <blockquote class="blockquote mb-0">
+      <p>"The early bird catches the worm — but not when the highway drowns it out."</p>
+    </blockquote>
+  </section>
+
+  <!-- Problem and Motivation -->
+  <section class="container py-5">
+    <h2>Problem & Motivation</h2>
+    <p>Bird migration routes are influenced by a variety of environmental factors. One under-explored factor is highway noise, which can disrupt nesting, feeding, and communication behaviors. Our project seeks to uncover how traffic corridors impact bird migration patterns across seasons.</p>
+  </section>
+
+  <!-- Our Solution -->
+  <section class="container py-5 bg-light">
+    <h2>Our Solution</h2>
+    <p>We combined bird observation data with highway noise projections to identify key regions of disruption. Our interactive map and data pipeline help visualize and interpret these impacts for both researchers and the public.</p>
+  </section>
+  <!-- Data Sources -->
+  <section class="container py-5">
+    <h2>Data Sources</h2>
+    <ul>
+      <li><strong>eBird API</strong> – bird observation data from Cornell Lab</li>
+      <li><strong>FHWA TNM Models</strong> – highway noise projections</li>
+      <li><strong>OpenStreetMap</strong> – basemap & location data</li>
+    </ul>
+  </section>
+  <!-- Data Pipeline -->
+  <section class="container py-5 bg-light">
+    <h2>Data Pipeline</h2>
+    <div class="row text-center">
+      <div class="col-md-4">
+        <i class="fas fa-database fa-2x text-primary mb-2"></i>
+        <h5>1. Data Collection</h5>
+        <p>From eBird, traffic sensors, and noise prediction models</p>
+      </div>
+      <div class="col-md-4">
+        <i class="fas fa-broom fa-2x text-primary mb-2"></i>
+        <h5>2. Cleaning & Integration</h5>
+        <p>Normalized formats, GPS alignment, noise layering</p>
+      </div>
+      <div class="col-md-4">
+        <i class="fas fa-map fa-2x text-primary mb-2"></i>
+        <h5>3. Visualization</h5>
+        <p>Interactive mapping with Leaflet.js & custom projections</p>
+      </div>
+    </div>
+  </section>
+
+<!-- XGBoost Modeling Section -->
+<section class="container py-5">
+  <h2>Modeling Bird Populations with XGBoost</h2>
+  <p>
+    To estimate how changing noise conditions might impact future bird populations, we trained an <strong>XGBoost regression model</strong> using:
+  </p>
+  <ul>
+    <li>Location-based bird observation counts (from eBird)</li>
+    <li>Ambient and projected noise levels (in dB)</li>
+    <li>Environmental features like extreme weather</li>
+  </ul>
+  <p>
+    The model was able to predict population changes with a mean absolute error under <strong>xx%</strong> on held-out validation data. By simulating increased or reduced highway noise scenarios, we projected localized bird population shifts—highlighting areas most sensitive to acoustic disruption.
+  </p>
+  <p>
+    These predictions are layered into our interactive map to visually represent both current and projected migration patterns.
+  </p>
+</section>
+
+  <!-- Embedded Map -->
+  <section class="container py-5 bg-light">
+    <h2>Interactive Noise Projection Map</h2>
+    <div class="ratio ratio-16x9">
+      <iframe src="assets/map.html" title="Noise Projection Map" frameborder="0"></iframe>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white text-center py-4">
+    <p class="mb-0">Made by UC Berkeley Master of Information Students</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

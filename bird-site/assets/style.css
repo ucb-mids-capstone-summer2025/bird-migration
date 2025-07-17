@@ -1,0 +1,9 @@
+.hero-section {
+  background: linear-gradient(135deg, #4db6ac, #00796b);
+}
+
+blockquote {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: #555;
+}
