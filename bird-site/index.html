@@ -23,6 +23,40 @@
       padding: 1rem;
       margin-bottom: 1rem;
     }
+    .projection-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 0.75rem;
+      margin: 1.5rem 0;
+    }
+    .projection-item {
+      background: white;
+      border-radius: 6px;
+      padding: 1rem;
+      border: 2px solid #dee2e6;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .projection-item.decrease {
+      border-color: #28a745;
+      background: #f8fff9;
+    }
+    .projection-item.neutral {
+      border-color: #6c757d;
+      background: #f8f9fa;
+    }
+    .projection-item.increase {
+      border-color: #dc3545;
+      background: #fff8f8;
+    }
+    .projection-item h6 {
+      margin: 0 0 0.5rem 0;
+      font-weight: bold;
+    }
+    .projection-item .impact {
+      font-size: 0.8rem;
+      color: #6c757d;
+    }
   </style>
 </head>
 <body>
@@ -61,6 +95,10 @@
           <p class="mb-0">The highlighted polygon represents a 5-mile buffer zone along the I-95 highway corridor, our primary area of analysis.</p>
         </div>
       </div>
+      <div class="alert alert-warning mt-3">
+          <h6><i class="fas fa-map me-2"></i>How to Use the Map Legend</h6>
+          <p class="mb-0"><strong>Select different projection levels</strong> to see how changing traffic volumes would affect bird observations along the I-95 corridor. The color gradient on the map shifts from green (quieter) to red (louder) based on your selection. The size of the circle reflects the number of birds observed at the station.</p>
+      </div>
     </div>
   </section>
 
@@ -69,6 +107,55 @@
     <h2 class="text-center mb-4">Interactive Bird Migration & Noise Map</h2>
     <div class="ratio ratio-16x9">
       <iframe src="assets/map.html" title="Bird Migration & Highway Noise Map" frameborder="0" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"></iframe>
+    </div>
+  </section>
+
+  <!-- Understanding the Projections -->
+  <section class="container py-5 bg-light">
+    <h2 class="text-center mb-4">Understanding the Noise Projections</h2>
+    
+    <div class="row">
+      <div class="col-md-10 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-center mb-4">What Do the Projection Percentages Mean?</h5>
+            
+            <p class="mb-4">Each monitoring station along I-95 has its own baseline noise level. The projection percentages (-30% to +30%) represent <strong>relative changes in traffic volume</strong> that affect all locations proportionally.</p>
+            
+            <div class="row text-center mb-4">
+              <div class="col-md-4">
+                <div class="p-3 border rounded bg-success text-white">
+                  <h6>Quieter Scenarios</h6>
+                  <strong>-30% to -10%</strong>
+                  <p class="small mb-0">Reduced traffic, improved bird habitat</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 border rounded bg-secondary text-white">
+                  <h6>Current Baseline</h6>
+                  <strong>0%</strong>
+                  <p class="small mb-0">2023 traffic conditions</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 border rounded bg-danger text-white">
+                  <h6>Busier Scenarios</h6>
+                  <strong>+10% to +30%</strong>
+                  <p class="small mb-0">Increased traffic, more bird disruption</p>
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="alert alert-info mt-4">
+              <h6><i class="fas fa-info-circle me-2"></i>Example</h6>
+              <p class="mb-0"><strong>Typical Impact:</strong> A +30% traffic increase adds ~1-2 dB. 
+              For context: 65 dB = busy restaurant, 70 dB = vacuum cleaner, 75 dB = heavy traffic, 80 dB = garbage disposal. Even small dB increases significantly impact bird communication ranges.</p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
