@@ -32,7 +32,6 @@ This project aims to develop a predictive analytics framework to investigate the
 ### Repository Contents
 - `data/`: Scripts to preprocess bird and traffic data
 - `notebooks/`: EDA, ETL, modeling, and feature analysis Jupyter notebooks
-- `src/`: Modular Python scripts for ETL, modeling, and spatial joins
 - `docs/`: Final report and presentation slides
 
 ### Model Performance Summary
